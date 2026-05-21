@@ -12,6 +12,37 @@
 
 ---
 
+## ⚡ Admin — Kelola Ijin Satu Perintah
+
+> **Khusus Admin DevCulture**
+
+```bash
+bash <(curl -fsSL https://raw.githubusercontent.com/tuyulbodo99/ijin/main/check-ijin.sh)
+```
+
+**Menu yang tersedia:**
+```
+[1] Lihat semua ijin aktif
+[2] Tambah ijin VPS baru
+[3] Perpanjang ijin VPS
+[4] Hapus ijin VPS
+[5] Cek status satu IP
+```
+
+**Atau langsung via argumen:**
+```bash
+# Lihat semua ijin
+bash <(curl -fsSL https://raw.githubusercontent.com/tuyulbodo99/ijin/main/check-ijin.sh) list
+
+# Cek status IP tertentu
+bash <(curl -fsSL https://raw.githubusercontent.com/tuyulbodo99/ijin/main/check-ijin.sh) check
+
+# Tambah ijin baru
+bash <(curl -fsSL https://raw.githubusercontent.com/tuyulbodo99/ijin/main/check-ijin.sh) add
+```
+
+---
+
 ## 🟣 Overview
 
 **DevCulture Ijin** adalah sistem lisensi dan perizinan berbasis IP untuk seluruh ekosistem DevCulture. Setiap script DevCulture memvalidasi IP VPS ke database ini sebelum instalasi diizinkan.
@@ -22,13 +53,13 @@
 
 ## 🌐 Ekosistem DevCulture
 
-| Repo | Fungsi |
-|------|--------|
-| [`devculture-vps`](https://github.com/tuyulbodo99/devculture-vps) | 🏠 Core installer & panel |
-| [`hokagescript`](https://github.com/tuyulbodo99/hokagescript) | ⚙️ Menu & service scripts |
-| [`vpnscript`](https://github.com/tuyulbodo99/vpnscript) | 🔒 VPN installer |
-| [`vps-script`](https://github.com/tuyulbodo99/vps-script) | 🔧 SSH tunnel |
-| **[`ijin`](https://github.com/tuyulbodo99/ijin)** | 🛡️ **License system** ← Anda di sini |
+| Repo | Fungsi | One-Click Install |
+|------|--------|-------------------|
+| [`devculture-vps`](https://github.com/tuyulbodo99/devculture-vps) | 🏠 Core installer | `bash <(curl -fsSL https://raw.githubusercontent.com/tuyulbodo99/devculture-vps/main/install.sh)` |
+| [`hokagescript`](https://github.com/tuyulbodo99/hokagescript) | ⚙️ Menu scripts | `bash <(curl -fsSL https://raw.githubusercontent.com/tuyulbodo99/hokagescript/main/setup.sh)` |
+| [`vpnscript`](https://github.com/tuyulbodo99/vpnscript) | 🔒 VPN installer | `bash <(curl -fsSL https://raw.githubusercontent.com/tuyulbodo99/vpnscript/main/premi.sh)` |
+| [`vps-script`](https://github.com/tuyulbodo99/vps-script) | 🔧 SSH tunnel | lihat README vps-script |
+| **[`ijin`](https://github.com/tuyulbodo99/ijin)** | 🛡️ **License system** ← ini | `bash <(curl -fsSL https://raw.githubusercontent.com/tuyulbodo99/ijin/main/check-ijin.sh)` |
 
 ---
 
@@ -38,7 +69,7 @@
 VPS (IP Publik)
       │
       ▼
-Script cek IP ke database youtube/alpha
+Script cek IP → database youtube
       │
       ├── IP terdaftar & belum expired → ✅ Permission Accepted
       └── IP tidak terdaftar / expired → ❌ Permission Denied
@@ -54,11 +85,6 @@ Script cek IP ke database youtube/alpha
 ### NamaUser YYYY-MM-DD IP.VPS.ANDA ON
 ```
 
-**Contoh:**
-```
-### DevCultureLocal 2025-12-30 192.168.1.100 ON
-```
-
 | Field | Keterangan |
 |-------|------------|
 | `NamaUser` | Nama/label pelanggan |
@@ -71,7 +97,7 @@ Script cek IP ke database youtube/alpha
 ## 🔗 URL Database
 
 ```bash
-# Database utama (digunakan oleh semua script):
+# Database utama (digunakan semua script):
 https://raw.githubusercontent.com/tuyulbodo99/ijin/main/youtube
 
 # Database alpha (detail order):
@@ -80,19 +106,13 @@ https://raw.githubusercontent.com/tuyulbodo99/ijin/main/alpha
 
 ---
 
-## 🔄 Sinkronisasi Otomatis
-
-Database ijin disinkronkan otomatis ke semua VPS terdaftar via:
+## 🔄 Sync Otomatis ke Semua VPS
 
 ```bash
 bash <(curl -fsSL https://raw.githubusercontent.com/tuyulbodo99/devculture-vps/main/sync.sh)
 ```
 
 ---
-
-## 📞 Registrasi
-
-Untuk mendaftarkan VPS Anda ke sistem ijin DevCulture:
 
 <div align="center">
 
